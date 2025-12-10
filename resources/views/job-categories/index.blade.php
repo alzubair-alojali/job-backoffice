@@ -1,14 +1,14 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('job Categories') }}{{ $request()->input('archived') == true ? ' - Archived' : '' }}
+            {{ __('job Categories') }}{{ request()->input('archived') == true ? ' - Archived' : '' }}
         </h2>
     </x-slot>
     <div class="overflow-x-auto p-6">
         <!--- messages-->
         <x-toast-notification />
         <div class="flex justify-end space-x-4">
-            @if($request()->input('archived') == true)
+            @if(request()->input('archived') == true)
                 <!--active-->
                 <a href="{{ route('job-categories.index') }}"
                     class="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-500">View
@@ -38,7 +38,7 @@
                         <td class="px-6 py-4 text-gray-800">{{ $category->name }}</td>
                         <td>
                             <div class="flex space-x-4">
-                                @if($request()->input('archived') == true)
+                                @if(request()->input('archived') == true)
                                     <!-- Restore button -->
                                     <form action="{{ route('job-categories.restore', $category->id) }}" method="POST"
                                         class="inline">

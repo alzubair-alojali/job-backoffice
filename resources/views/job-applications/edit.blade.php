@@ -6,7 +6,7 @@
     </x-slot>
     <div class="overflow-x-auto p-6">
         <form
-            action="{{ route('job-application.update', ['job_application' => $jobApplication->id, 'redirecttolist' => $request('redirecttolist')]) }}"
+            action="{{ route('job-application.update', ['job_application' => $jobApplication->id, 'redirecttolist' => request('redirecttolist')]) }}"
             method="POST" class="max-w-md mx-auto bg-white p-6 rounded-lg shadow">
             @csrf
             @method('PUT')

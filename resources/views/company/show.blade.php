@@ -9,7 +9,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __($company_name) }}{{ $request()->input('archived') == true ? ' - Archived' : '' }}
+            {{ __($company_name) }}{{ request()->input('archived') == true ? ' - Archived' : '' }}
         </h2>
     </x-slot>
     <div class="overflow-x-auto p-6">
@@ -59,11 +59,11 @@
                 <div class="mb-6">
                     <ul class="flex space-x-4">
                         <li>
-                            <a class="px-4 py-2 text-gray-800 font-semibold {{ $request()->input('tab') == 'jobs' || $request()->input('tab') == '' ? 'border-b-2 border-blue-600' : '' }}"
+                            <a class="px-4 py-2 text-gray-800 font-semibold {{ request()->input('tab') == 'jobs' || request()->input('tab') == '' ? 'border-b-2 border-blue-600' : '' }}"
                                 href="{{ route('company.show', ['company' => $company->id, 'tab' => 'jobs']) }}">Jobs</a>
                         </li>
                         <li>
-                            <a class="px-4 py-2 text-gray-800 font-semibold {{ $request()->input('tab') == 'applications' ? 'border-b-2 border-blue-600' : '' }}"
+                            <a class="px-4 py-2 text-gray-800 font-semibold {{ request()->input('tab') == 'applications' ? 'border-b-2 border-blue-600' : '' }}"
                                 href="{{ route('company.show', ['company' => $company->id, 'tab' => 'applications']) }}">Applications</a>
                         </li>
                     </ul>
@@ -73,7 +73,7 @@
                 <div>
                     <!--jobs tab-->
                     <div id="jobs"
-                        class="{{ $request()->input('tab') == 'jobs' || $request()->input('tab') == '' ? 'block' : 'hidden' }}">
+                        class="{{ request()->input('tab') == 'jobs' || request()->input('tab') == '' ? 'block' : 'hidden' }}">
                         <table class="min-w-full bg-gray-50 rounded-lg shadow">
                             <thead>
                                 <tr>
@@ -99,7 +99,7 @@
                         </table>
                     </div>
                     <!--applications tab-->
-                    <div id="applications" class="{{ $request()->input('tab') == 'applications' ? 'block' : 'hidden' }}">
+                    <div id="applications" class="{{ request()->input('tab') == 'applications' ? 'block' : 'hidden' }}">
                         <table class="min-w-full bg-gray-50 rounded-lg shadow">
                             <thead>
                                 <tr>

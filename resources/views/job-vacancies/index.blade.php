@@ -1,14 +1,14 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('job vacancies') }}{{ $request()->input('archived') == true ? ' - Archived' : '' }}
+            {{ __('job vacancies') }}{{ request()->input('archived') == true ? ' - Archived' : '' }}
         </h2>
     </x-slot>
     <div class="overflow-x-auto p-6">
         <!--- messages-->
         <x-toast-notification />
         <div class="flex justify-end space-x-4">
-            @if($request()->input('archived') == true)
+            @if(request()->input('archived') == true)
                 <!--active-->
                 <a href="{{ route('job-vacancies.index') }}"
                     class="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-500">View
@@ -40,7 +40,7 @@
                 @forelse ($JobVacancies as $jobvacancy)
                     <tr class="border-6">
                         <td class="px-6 py-4 text-gray-800">
-                            @if($request()->input('archived') == true)
+                            @if(request()->input('archived') == true)
                                 <span class="px-6 py-4 text-gray-800">{{ $jobvacancy->title }}</span>
                             @else
                                 <a class="text-blue-500 underline hover:text-blue-700"
@@ -53,7 +53,7 @@
                         <td class="px-6 py-4 text-gray-800">${{ number_format($jobvacancy->salary, 2) }}</td>
                         <td>
                             <div class="flex space-x-4">
-                                @if($request()->input('archived') == true)
+                                @if(request()->input('archived') == true)
                                     <!-- Restore button -->
                                     <form action="{{ route('job-vacancies.restore', $jobvacancy->id) }}" method="POST"
                                         class="inline">

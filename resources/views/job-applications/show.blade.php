@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __($jobApplication->user->name . ' | applied to ' . $jobApplication->jobVacancy->title) }}{{ $request()->input('archived') == true ? ' - Archived' : '' }}
+            {{ __($jobApplication->user->name . ' | applied to ' . $jobApplication->jobVacancy->title) }}{{ request()->input('archived') == true ? ' - Archived' : '' }}
         </h2>
     </x-slot>
     <div class="overflow-x-auto p-6">
@@ -43,11 +43,11 @@
             <div class="mb-6">
                 <ul class="flex space-x-4">
                     <li>
-                        <a class="px-4 py-2 text-gray-800 font-semibold {{ $request()->input('tab') == 'resume' || $request()->input('tab') == '' ? 'border-b-2 border-blue-600' : '' }}"
+                        <a class="px-4 py-2 text-gray-800 font-semibold {{ request()->input('tab') == 'resume' || request()->input('tab') == '' ? 'border-b-2 border-blue-600' : '' }}"
                             href="{{ route('job-application.show', ['job_application' => $jobApplication->id, 'tab' => 'resume']) }}">Resume</a>
                     </li>
                     <li>
-                        <a class="px-4 py-2 text-gray-800 font-semibold {{ $request()->input('tab') == 'aifeedback' ? 'border-b-2 border-blue-600' : '' }}"
+                        <a class="px-4 py-2 text-gray-800 font-semibold {{ request()->input('tab') == 'aifeedback' ? 'border-b-2 border-blue-600' : '' }}"
                             href="{{ route('job-application.show', ['job_application' => $jobApplication->id, 'tab' => 'aifeedback']) }}">AI
                             Feedback</a>
                     </li>
@@ -58,7 +58,7 @@
             <div>
                 <!--resume tab-->
                 <div id="resume"
-                    class="{{ $request()->input('tab') == 'resume' || $request()->input('tab') == '' ? 'block' : 'hidden' }}">
+                    class="{{ request()->input('tab') == 'resume' || request()->input('tab') == '' ? 'block' : 'hidden' }}">
                     <table class="min-w-full bg-gray-50 rounded-lg shadow">
                         <thead>
                             <tr>
@@ -80,7 +80,7 @@
                     </table>
                 </div>
                 <!--ai feedback tab-->
-                <div id="aifeedback" class="{{ $request()->input('tab') == 'aifeedback' ? 'block' : 'hidden' }}">
+                <div id="aifeedback" class="{{ request()->input('tab') == 'aifeedback' ? 'block' : 'hidden' }}">
                     <table class="min-w-full bg-gray-50 rounded-lg shadow">
                         <thead>
                             <tr>

@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
     <div class="overflow-x-auto p-6">
-        <form action="{{ route('company.store', ['redirecttolist' => $request('redirecttolist')]) }}" method="POST"
+        <form action="{{ route('company.store', ['redirecttolist' => request('redirecttolist')]) }}" method="POST"
             class="max-w-md mx-auto bg-white p-6 rounded-lg shadow">
             @csrf
 

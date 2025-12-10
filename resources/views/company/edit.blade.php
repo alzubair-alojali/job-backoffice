@@ -6,11 +6,11 @@
     </x-slot>
     <div class="overflow-x-auto p-6">
         @if(auth()->user()->role == 'admin')
-            <form action="{{ route('company.update', [$company->id, 'redirecttolist' => $request('redirecttolist')]) }}"
+            <form action="{{ route('company.update', [$company->id, 'redirecttolist' => request('redirecttolist')]) }}"
                 method="POST" class="max-w-md mx-auto bg-white p-6 rounded-lg shadow">
                 <h1>admin</h1>
         @else
-                <form action="{{ route('my-company.update', ['redirecttolist' => $request('redirecttolist')]) }}"
+                <form action="{{ route('my-company.update', ['redirecttolist' => request('redirecttolist')]) }}"
                     method="POST" class="max-w-md mx-auto bg-white p-6 rounded-lg shadow">
                     <h1>company-owner</h1>
             @endif

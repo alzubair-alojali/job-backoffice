@@ -1,4 +1,4 @@
-$request$request$request$request$request$request$request<nav
+<nav
     class="w-[250px] bg-white h-screen border-r border-gray-200">
     <!-- Logo Section -->
     <div class="flex items-center px-6 border-b border-gray-200 py-4">

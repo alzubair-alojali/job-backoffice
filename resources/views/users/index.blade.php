@@ -1,14 +1,14 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Users') }}{{ $request()->input('archived') == true ? ' - Archived' : '' }}
+            {{ __('Users') }}{{ request()->input('archived') == true ? ' - Archived' : '' }}
         </h2>
     </x-slot>
     <div class="overflow-x-auto p-6">
         <!--- messages-->
         <x-toast-notification />
         <div class="flex justify-end space-x-4">
-            @if($request()->input('archived') == true)
+            @if(request()->input('archived') == true)
                 <!--active-->
                 <a href="{{ route('users.index') }}"
                     class="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-500">View
@@ -44,7 +44,7 @@
                             <!--hide edit and Archive if is admin-->
                             @if($user->role !== 'admin')
                                 <div class="flex space-x-4">
-                                    @if($request()->input('archived') == true)
+                                    @if(request()->input('archived') == true)
                                         <!-- Restore button -->
                                         <form action="{{ route('users.restore', $user->id) }}" method="POST" class="inline">
                                             @csrf
